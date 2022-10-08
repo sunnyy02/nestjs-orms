@@ -58,6 +58,19 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+# sequelize db migration
+sequelize cli provides out-of-box feature to generate model and migrations.
+But there is limitation on its TypeScript support. You will need to either manually update the migration file, or generate the module js file using the cli as below.
+In another words, you will need to keep two table meta data in the project, one for the ts model, another for migration.
+```bash
+$ npx sequelize-cli migration:generate --name user-add-age
+```
+Then you are able to use the migrate cli command to sync to database
+```bash
+npx sequelize-cli db:migrate
+```
+
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
